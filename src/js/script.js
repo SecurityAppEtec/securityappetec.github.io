@@ -255,29 +255,22 @@ function reiniciarQuiz() {
     score = 0;
     carregarQuiz();
 }
-// Menu responsivo de todas as paginas
-const menuToggle = document.querySelector('.menu-toggle');
-const menuPrincipal = document.querySelector('header nav');
+// Menu responsivo compartilhado por todas as paginas
+function iniciarMenuMobile() {
+    const botao = document.querySelector('.menu-toggle');
+    const menu = document.querySelector('header nav');
+    if (!botao || !menu) return;
 
-if (menuToggle && menuPrincipal) {
-    const fecharMenu = () => {
-        menuToggle.classList.remove('aberto');
-        menuPrincipal.classList.remove('aberto');
-        menuToggle.setAttribute('aria-expanded', 'false');
-        menuToggle.setAttribute('aria-label', 'Abrir menu');
+    const definirEstado = (aberto) => {
+        botao.classList.toggle('aberto', aberto);
+        menu.classList.toggle('aberto', aberto);
+        botao.setAttribute('aria-expanded', String(aberto));
+        botao.setAttribute('aria-label', aberto ? 'Fechar menu' : 'Abrir menu');
     };
 
-    menuToggle.addEventListener('click', () => {
-        const aberto = !menuPrincipal.classList.contains('aberto');
-        menuToggle.classList.toggle('aberto', aberto);
-        menuPrincipal.classList.toggle('aberto', aberto);
-        menuToggle.setAttribute('aria-expanded', String(aberto));
-        menuToggle.setAttribute('aria-label', aberto ? 'Fechar menu' : 'Abrir menu');
-    });
-
-    menuPrincipal.querySelectorAll('a').forEach(link => link.addEventListener('click', fecharMenu));
-
-    window.addEventListener('resize', () => {
-        if (window.innerWidth > 720) fecharMenu();
-    });
+    botao.addEventListener('click', () => definirEstado(!menu.classList.contains('aberto')));
+    menu.querySelectorAll('a').forEach(link => link.addEventListener('click', () => definirEstado(false)));
+    window.addEventListener('resize', () => { if (window.innerWidth > 720) definirEstado(false); });
 }
+
+document.addEventListener('DOMContentLoaded', iniciarMenuMobile);
