@@ -1,103 +1,194 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Último Clique - Minicursos</title>
-    <link rel="stylesheet" href="../css/style.css">
-</head>
-<body>
-    <header>
-        <div class="logo">
-            <a href="index.html">
-                <img src="../assets/img/logo.png" alt="Logotipo Último clique" class="Logo-img">
-            </a></div>
-        <button class="menu-toggle" type="button" aria-label="Abrir menu" aria-expanded="false" aria-controls="menu-principal">
-            <span></span><span></span><span></span>
-        </button>
-        <nav id="menu-principal">
-            <ul>
-                <li><a href="index.html">Home</a></li>
-                <li><a href="cartilhas.html">Cartilhas</a></li>
-                <li><a href="quiz.html">Quiz</a></li>
-                <li><a href="minicursos.html" class="active">Minicursos</a></li>
-                <li><a href="infograficos.html">Infográficos</a></li>
-                <li><a href="faq.html">FAQ</a></li>
-            </ul>
-        </nav>
-    </header>
-
-    <main class="container">
-        <h2 style="color: var(--title)">Painel Geral de Aprendizado</h2>
-        <p id="texto-progresso" style="margin-bottom:10px; font-weight:600; color: var(--subtitle);">Você concluiu 0 de 3 módulos (0%)</p>
-        
-        <div class="progress-container">
-            <div class="progress-bar" id="progress-bar"></div>
-        </div>
-
-        <button class="btn" onclick="resetarCurso()" style="max-width:180px; margin-bottom:30px; font-size:0.85rem; background:#cbd5e1; color:#334155;">Resetar Progresso</button>
-
-        <div class="grid">
-            <div class="card" id="card-aula-1">
-                <div>
-                    <div class="video-wrapper">
-                        <iframe src="https://www.youtube.com/embed/dQw4w9WgXcQ" allowfullscreen></iframe>
-                    </div>
-                    <h3>Módulo 1: Fundamentos de Redes</h3>
-                    <p style="margin-top: 5px;">Entenda como a internet trafega seus dados e o papel crucial dos endereços de IP na comunicação.</p>
-                    
-                    <div class="curso-conteudo" id="conteudo-1">
-                        <h4>Conteúdo Didático Complementar:</h4>
-                        <p>Cada aparelho conectado à internet possui uma etiqueta numérica exclusiva chamada <strong>IP (Internet Protocol)</strong>. Os dados trafegam pela rede divididos em minúsculos "pacotes digitais" passando por roteadores, até encontrarem o destinatário correto de forma ágil.</p>
-                    </div>
-                </div>
-                <div>
-                    <button class="btn btn-secondary" onclick="alternarConteudo(1)">Estudar Conteúdo</button>
-                    <button class="btn" id="btn-check-1" onclick="marcarConcluido(1)">Marcar como Lido</button>
-                </div>
-            </div>
-
-            <div class="card" id="card-aula-2">
-                <div>
-                    <div class="video-wrapper">
-                        <iframe src="https://www.youtube.com/embed/dQw4w9WgXcQ" allowfullscreen></iframe>
-                    </div>
-                    <h3>Módulo 2: Certificados e Criptografia</h3>
-                    <p style="margin-top: 5px;">O que são os protocolos HTTP e HTTPS e o significado real do cadeado de segurança na barra de navegação.</p>
-                    
-                    <div class="curso-conteudo" id="conteudo-2">
-                        <h4>Conteúdo Didático Complementar:</h4>
-                        <p>A criptografia protege a informação codificando-a através de algoritmos matemáticos complexos. Sites que utilizam o protocolo <strong>HTTPS</strong> codificam os dados de ponta a ponta, impedindo que criminosos na mesma rede leiam senhas ou informações digitadas.</p>
-                    </div>
-                </div>
-                <div>
-                    <button class="btn btn-secondary" onclick="alternarConteudo(2)">Estudar Conteúdo</button>
-                    <button class="btn" id="btn-check-2" onclick="marcarConcluido(2)">Marcar como Lido</button>
-                </div>
-            </div>
-
-            <div class="card" id="card-aula-3">
-                <div>
-                    <div class="video-wrapper">
-                        <iframe src="https://www.youtube.com/embed/dQw4w9WgXcQ" allowfullscreen></iframe>
-                    </div>
-                    <h3>Módulo 3: Configuração Residencial</h3>
-                    <p style="margin-top: 5px;">Princípios fundamentais para proteger o ponto de entrada principal da sua rede sem fio doméstica.</p>
-                    
-                    <div class="curso-conteudo" id="conteudo-3">
-                        <h4>Conteúdo Didático Complementar:</h4>
-                        <p>Manter as credenciais padrões de administração configuradas na fábrica deixa seu roteador totalmente exposto. Acesse o IP do seu aparelho pelo navegador, mude as chaves de acesso master imediatamente e certifique-se de usar a criptografia <strong>WPA2-AES</strong> ou WPA3.</p>
-                    </div>
-                </div>
-                <div>
-                    <button class="btn btn-secondary" onclick="alternarConteudo(3)">Estudar Conteúdo</button>
-                    <button class="btn" id="btn-check-3" onclick="marcarConcluido(3)">Marcar como Lido</button>
-                </div>
-            </div>
-        </div>
-    </main>
-
-    <footer><p>&copy; 2026 Último Clique </p></footer>
-    <script src="../js/script.js"></script>
-</body>
+ <head>
+  <meta charset="utf-8"/>
+  <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+  <title>
+   Último Clique - Minicursos
+  </title>
+  <link href="../css/style.css" rel="stylesheet"/>
+ </head>
+ <body>
+  <header>
+   <div class="logo">
+    <a href="index.html">
+     <img alt="Logotipo Último clique" class="Logo-img" src="../assets/img/logo.png"/>
+    </a>
+   </div>
+   <button aria-controls="menu-principal" aria-expanded="false" aria-label="Abrir menu" class="menu-toggle" type="button">
+    <span>
+    </span>
+    <span>
+    </span>
+    <span>
+    </span>
+   </button>
+   <nav id="menu-principal">
+    <ul>
+     <li>
+      <a href="index.html">
+       Home
+      </a>
+     </li>
+     <li>
+      <a href="cartilhas.html">
+       Cartilhas
+      </a>
+     </li>
+     <li>
+      <a href="quiz.html">
+       Quiz
+      </a>
+     </li>
+     <li>
+      <a class="active" href="minicursos.html">
+       Minicursos
+      </a>
+     </li>
+     <li>
+      <a href="infograficos.html">
+       Infográficos
+      </a>
+     </li>
+     <li>
+      <a href="faq.html">
+       FAQ
+      </a>
+     </li>
+    </ul>
+   </nav>
+  </header>
+  <main class="container">
+   <h2 style="color: var(--title)">
+    Painel Geral de Aprendizado
+   </h2>
+   <p id="texto-progresso" style="margin-bottom:10px; font-weight:600; color: var(--subtitle);">
+    Você concluiu 0 de 3 módulos (0%)
+   </p>
+   <div class="progress-container">
+    <div class="progress-bar" id="progress-bar">
+    </div>
+   </div>
+   <button class="btn" onclick="resetarCurso()" style="max-width:180px; margin-bottom:30px; font-size:0.85rem; background:#cbd5e1; color:#334155;">
+    Resetar Progresso
+   </button>
+   <div class="grid">
+    <div class="card" id="card-aula-1">
+     <div>
+      <a aria-label="Assistir video deste modulo no YouTube" class="btn-youtube" href="https://www.youtube.com/watch?v=okYCzbUjwHI" rel="noopener noreferrer" target="_blank">
+       <span aria-hidden="true" class="youtube-icon">
+        ▶
+       </span>
+       Assistir aula no YouTube
+      </a>
+      <h3>
+       Módulo 1: Fundamentos de Redes
+      </h3>
+      <p style="margin-top: 5px;">
+       Entenda como a internet trafega seus dados e o papel crucial dos endereços de IP na comunicação.
+      </p>
+      <div class="curso-conteudo" id="conteudo-1">
+       <h4>
+        Conteúdo Didático Complementar:
+       </h4>
+       <p>
+        Cada aparelho conectado à internet possui uma etiqueta numérica exclusiva chamada
+        <strong>
+         IP (Internet Protocol)
+        </strong>
+        . Os dados trafegam pela rede divididos em minúsculos "pacotes digitais" passando por roteadores, até encontrarem o destinatário correto de forma ágil.
+       </p>
+      </div>
+     </div>
+     <div>
+      <button class="btn btn-secondary" onclick="alternarConteudo(1)">
+       Estudar Conteúdo
+      </button>
+      <button class="btn" id="btn-check-1" onclick="marcarConcluido(1)">
+       Marcar como Lido
+      </button>
+     </div>
+    </div>
+    <div class="card" id="card-aula-2">
+     <div>
+      <a aria-label="Assistir video deste modulo no YouTube" class="btn-youtube" href="https://www.youtube.com/watch?v=G9VlDTshk-k" rel="noopener noreferrer" target="_blank">
+       <span aria-hidden="true" class="youtube-icon">
+        ▶
+       </span>
+       Assistir aula no YouTube
+      </a>
+      <h3>
+       Módulo 2: Certificados e Criptografia
+      </h3>
+      <p style="margin-top: 5px;">
+       O que são os protocolos HTTP e HTTPS e o significado real do cadeado de segurança na barra de navegação.
+      </p>
+      <div class="curso-conteudo" id="conteudo-2">
+       <h4>
+        Conteúdo Didático Complementar:
+       </h4>
+       <p>
+        A criptografia protege a informação codificando-a através de algoritmos matemáticos complexos. Sites que utilizam o protocolo
+        <strong>
+         HTTPS
+        </strong>
+        codificam os dados de ponta a ponta, impedindo que criminosos na mesma rede leiam senhas ou informações digitadas.
+       </p>
+      </div>
+     </div>
+     <div>
+      <button class="btn btn-secondary" onclick="alternarConteudo(2)">
+       Estudar Conteúdo
+      </button>
+      <button class="btn" id="btn-check-2" onclick="marcarConcluido(2)">
+       Marcar como Lido
+      </button>
+     </div>
+    </div>
+    <div class="card" id="card-aula-3">
+     <div>
+      <a aria-label="Assistir video deste modulo no YouTube" class="btn-youtube" href="https://www.youtube.com/watch?v=7BoGrzEYWUg" rel="noopener noreferrer" target="_blank">
+       <span aria-hidden="true" class="youtube-icon">
+        ▶
+       </span>
+       Assistir aula no YouTube
+      </a>
+      <h3>
+       Módulo 3: Configuração Residencial
+      </h3>
+      <p style="margin-top: 5px;">
+       Princípios fundamentais para proteger o ponto de entrada principal da sua rede sem fio doméstica.
+      </p>
+      <div class="curso-conteudo" id="conteudo-3">
+       <h4>
+        Conteúdo Didático Complementar:
+       </h4>
+       <p>
+        Manter as credenciais padrões de administração configuradas na fábrica deixa seu roteador totalmente exposto. Acesse o IP do seu aparelho pelo navegador, mude as chaves de acesso master imediatamente e certifique-se de usar a criptografia
+        <strong>
+         WPA2-AES
+        </strong>
+        ou WPA3.
+       </p>
+      </div>
+     </div>
+     <div>
+      <button class="btn btn-secondary" onclick="alternarConteudo(3)">
+       Estudar Conteúdo
+      </button>
+      <button class="btn" id="btn-check-3" onclick="marcarConcluido(3)">
+       Marcar como Lido
+      </button>
+     </div>
+    </div>
+   </div>
+  </main>
+  <footer>
+   <p>
+    © 2026 Último Clique
+   </p>
+  </footer>
+  <script src="../js/script.js">
+  </script>
+ </body>
 </html>
