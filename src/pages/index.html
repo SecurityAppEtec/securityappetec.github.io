@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Último Clique - Home</title>
+    <link rel="stylesheet" href="../css/style.css">
+</head>
+<body>
+    <header>
+        <div class="logo">
+            <a href="index.html">
+                <img src="../assets/img/logo.png" alt="Logotipo Último Clique" class="logo-img">
+            </a>
+        </div>
+        <nav>
+            <ul>
+                <li><a href="index.html" class="active">Home</a></li>
+                <li><a href="cartilhas.html">Cartilhas</a></li>
+                <li><a href="quiz.html">Quiz</a></li>
+                <li><a href="minicursos.html">Minicursos</a></li>
+                <li><a href="infograficos.html">Infográficos</a></li>
+                <li><a href="faq.html">FAQ</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <section class="hero">
+        <h1>Aprenda a se proteger no mundo digital</h1>
+        <p>Aprenda segurança de redes de forma simples, interativa e totalmente prática.</p>
+        <button class="btn" id="btnOng" style="max-width:250px; margin-top:15px;">Contatar uma ONG Parceira</button>
+    </section>
+
+    <main class="container">
+        <div class="info-section">
+            <h2>O que é Segurança de Redes?</h2>
+            <p style="margin-top:10px;">Segurança de redes engloba todas as políticas, processes e práticas adotadas para prevenir, monitorar e garantir o acesso não autorizado, uso indevido ou modificação de uma rede de computadores e dos recursos conectados a ela. É a blindagem que protege seus dados pessoais de interceptações externas.</p>
+        </div>
+
+        <div class="info-section">
+            <h2>Principais Ameaças Digitais</h2>
+            <p style="margin-top:10px;">Criminosos utilizam táticas avançadas como vazamento de dados corporativos, sequestro de arquivos por meio de malwares (Ransomware), espionagem de tráfego em redes Wi-Fi públicas sem criptografia e técnicas de engenharia social para roubar credenciais e identidades digitais.</p>
+        </div>
+
+        <h2 style="text-align:center; margin: 40px 0 20px 0;" class="titulo">Nossos Recursos Educacionais</h2>
+        
+        <div class="grid">
+            <div class="card">
+                <h3>📚 Cartilhas de Orientação</h3>
+                <p>Navegue por Cartilhas didáticos completos baseados nas melhores práticas de segurança nacionais e internacionais.</p>
+                <a href="cartilhas.html" class="btn">Abrir Cartilhas</a>
+            </div>
+            
+            <div class="card">
+                <h3>🎮 Quiz de Golpes</h3>
+                <p>Entre no laboratório prático para analisar cenários cotidianos de e-mails, links e mensagens maliciosas.</p>
+                <a href="quiz.html" class="btn">Abrir quiz</a>
+            </div>
+            
+            <div class="card">
+                <h3>🎓 Módulos de Aprendizado</h3>
+                <p>Estude conceitos de tráfego de dados, criptografia de ponta a ponta e blindagem de redes residenciais.</p>
+                <a href="minicursos.html" class="btn">Acessar Cursos</a>
+            </div>
+        </div>
+    </main>
+
+    <div class="modal" id="ongModal">
+        <div class="modal-content">
+            <h3>Suporte Specialized</h3>
+            <p style="margin:15px 0;">Caso precise reportar alguma infração cibernética ou precise de suporte, entre em contato através do e-mail de apoio institucional de nossa organização parceira:</p>
+            <p style="font-weight:bold; color:var(--accent-color); font-size: 1.1rem;">ajuda@ongparceira.org</p>
+            <button class="btn" id="closeOng" style="max-width:150px; margin-top:15px;">Fechar</button>
+        </div>
+    </div>
+
+    <footer>
+        <p>&copy; 2026 Último Clique - Projeto Acadêmico de Conscientização Digital.</p>
+    </footer>
+
+    <script src="../js/script.js"></script>
+</body>
+</html>

@@ -1,0 +1,377 @@
+/* --- CONFIGURAÇÕES GERAIS --- */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+:root {
+    --primary-color: #0f172a;   /* Azul Marinho Confiança */
+    --accent-color: #06b6d4;     /* Destaques e Links */
+    --accent-hover: #1d4ed8;
+    --success-color: #10b981;    /* Verde Segurança */
+    --bg-light: #0f172a;         /* Branco/Cinza Claro Limpeza */
+    --text-dark: #303947;
+    --title: white;
+    --subtitle: #b3c2d8;
+    --danger-color: #ef4444;
+    --card-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+}
+
+body {
+    background-color: var(--bg-light);
+    color: var(--text-dark);
+    line-height: 1.6;
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+}
+
+/* --- CABEÇALHO --- */
+header {
+    background-color: white;
+    padding: 0 5%;              
+    height: 95px;               /* Deixa o header fixo numa altura bonita */
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+    position: sticky;
+    top: 0;
+    z-index: 100;
+}
+
+.logo {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 150px;               /* Cria uma "caixa" com largura fixa para a logo */
+    height: 90px;               /* Mesma altura do header */
+    overflow: visible;          /* Permite que o desenho da logo se espalhe além do corte invisível */
+}
+
+.logo a {
+    text-decoration: none;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    height: 100%;
+}
+
+.logo img {
+    height: 160px;              /* Mantém o tamanho grande que sua professora pediu */
+    width: auto;
+    object-fit: contain;
+    display: block;
+    margin-left: -15px;         /* Remove o excesso invisível do lado esquerdo */
+    
+    /* ADICIONE ESTA LINHA PARA CENTRALIZAR VERTICALMENTE: */
+    margin-top: 20px;           /* Empurra a logo um pouco para baixo. Ajuste esse valor se precisar de mais ou menos */
+}
+
+nav ul {
+    display: flex;
+    list-style: none;
+    gap: 20px;
+}
+
+nav a {
+    text-decoration: none;
+    color: var(--text-dark);
+    font-weight: 500;
+    transition: color 0.3s;
+}
+
+nav a:hover, nav a.active {
+    color: var(--accent-color);
+}
+
+/* --- HERO BANNER --- */
+.hero {
+    background: linear-gradient(135deg, #0f172a 0%, #1e3a8a 100%);
+    color:var(--title);
+    padding: 60px 5%;
+    text-align: center;
+}
+
+.hero h1 { font-size: 2.5rem; margin-bottom: 15px; color: var(--title);}
+.hero p { font-size: 1.1rem; max-width: 600px; margin: 0 auto; opacity: 0.9; color: var(--title);}
+
+/* --- CONTEXTO HOME --- */
+.info-section {
+    background: white;
+    padding: 30px;
+    border-radius: 12px;
+    box-shadow: var(--card-shadow);
+    margin-bottom: 30px;
+}
+
+/* --- CONTAINER E CARDS --- */
+.container {
+    max-width: 1100px;
+    margin: 40px auto;
+    padding: 0 20px;
+    flex: 1;
+    width: 100%;
+}
+
+.grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 30px;
+}
+
+.card {
+    background: white;
+    border-radius: 12px;
+    padding: 25px;
+    box-shadow: var(--card-shadow);
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    transition: transform 0.2s, border-color 0.3s;
+}
+
+.card h2 {
+    font-size: 1.3rem;
+    color: var(--primary-color);
+    margin-bottom: 10px;
+}
+
+.card:hover {
+    transform: translateY(-2px);
+}
+
+.card.concluido {
+    border-left: 6px solid var(--success-color);
+    background-color: #f0fdf4;
+}
+
+/* --- CONTÊNDOR DE VÍDEO (MINICURSOS) --- */
+.video-wrapper {
+    position: relative;
+    padding-bottom: 56.25%; /* Proporção 16:9 */
+    height: 0;
+    overflow: hidden;
+    border-radius: 8px;
+    background: #000;
+    margin-bottom: 15px;
+}
+
+.video-wrapper iframe {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    border: 0;
+}
+
+/* --- BOTÕES --- */
+.btn {
+    background-color: var(--accent-color);
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 6px;
+    font-weight: 600;
+    cursor: pointer;
+    text-align: center;
+    text-decoration: none;
+    transition: background 0.2s;
+    display: inline-block;
+    width: 100%;
+    margin-top: auto; /* Garante alinhamento do botão no fim do card */
+}
+
+.btn:hover { background-color: var(--accent-hover); }
+.btn-secondary { background-color: #cbd5e1; color: #1e293b; }
+.btn-secondary:hover { background-color: #b4f4d2; }
+
+.btn-check.feito {
+    background-color: var(--success-color);
+}
+
+/* --- CONTEÚDO EXPANSÍVEL DOS MINICURSOS --- */
+.curso-conteudo {
+    margin-top: 15px;
+    padding-top: 15px;
+    border-top: 1px dashed #e2e8f0;
+    display: none;
+}
+
+.curso-conteudo.ativo {
+    display: block;
+}
+
+/* --- BARRA DE PROGRESSO --- */
+.progress-container {
+    background: #e2e8f0;
+    border-radius: 10px;
+    height: 16px;
+    width: 100%;
+    margin-bottom: 25px;
+    overflow: hidden;
+}
+
+.progress-bar {
+    background: linear-gradient(90deg, #10b981 0%, #059669 100%);
+    width: 0%;
+    height: 100%;
+    transition: width 0.5s ease-in-out;
+}
+
+/* --- SIMULADOR DE GOLPES (QUIZ) --- */
+.quiz-box {
+    background: white;
+    padding: 30px;
+    border-radius: 12px;
+    box-shadow: var(--card-shadow);
+}
+
+.options-container {
+    margin: 20px 0;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.option-btn {
+    padding: 15px;
+    border: 2px solid #e2e8f0;
+    border-radius: 8px;
+    background: white;
+    cursor: pointer;
+    text-align: left;
+    font-size: 1rem;
+    transition: all 0.2s;
+}
+
+.option-btn:hover { border-color: var(--accent-color); background: #f8fafc; }
+.correct { background-color: #d1fae5 !important; border-color: var(--success-color) !important; color: #065f46; }
+.wrong { background-color: #fee2e2 !important; border-color: var(--danger-color) !important; color: #991b1b; }
+
+/* --- EXIBIÇÃO DE INFOGRÁFICOS --- */
+.infografico-wrapper {
+    width: 100%;
+    height: 350px;
+    overflow-y: auto;
+    border: 1px solid #e2e8f0;
+    border-radius: 8px;
+    margin-bottom: 15px;
+    background-color: #f1f5f9;
+}
+
+.infografico-wrapper img {
+    width: 100%;
+    height: auto;
+    display: block;
+}
+
+/* --- FAQ ACCORDION --- */
+.faq-item {
+    background: white;
+    margin-bottom: 15px;
+    border-radius: 8px;
+    box-shadow: var(--card-shadow);
+    overflow: hidden;
+}
+
+.faq-question {
+    padding: 20px;
+    font-weight: 600;
+    cursor: pointer;
+    background: #f1f5f9;
+    display: flex;
+    justify-content: space-between;
+}
+
+.faq-answer {
+    padding: 0 20px;
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.3s ease, padding 0.3s ease;
+}
+
+/* --- ARTIGO DETALHADO --- */
+.artigo {
+    background: white;
+    padding: 40px;
+    border-radius: 12px;
+    box-shadow: var(--card-shadow);
+}
+.artigo h2 { margin: 25px 0 10px 0; color: var(--primary-color); }
+.artigo p { margin-bottom: 15px; color: #475569; }
+.artigo ul, .artigo ol { margin-left: 20px; margin-bottom: 15px; color: #475569; }
+
+/* --- MODAL --- */
+.modal {
+    display: none;
+    position: fixed;
+    top: 0; left: 0; width: 100%; height: 100%;
+    background: rgba(0,0,0,0.5);
+    justify-content: center; align-items: center;
+    z-index: 1000;
+}
+.modal-content { background: white; padding: 30px; border-radius: 12px; max-width: 500px; text-align: center; }
+
+/* --- RODAPÉ --- */
+footer {
+    background-color: var(--primary-color);
+    color: white;
+    padding: 20px;
+    text-align: center;
+    margin-top: auto;
+}
+
+.titulo {
+    color: #ffffff;
+}
+/* Responsividade mobile */
+html { scroll-behavior: smooth; overflow-x: hidden; }
+body { overflow-x: hidden; }
+img, video, iframe { max-width: 100%; }
+.card { border: 1px solid rgba(255,255,255,.08); }
+.btn { border-radius: 10px; }
+@media (max-width: 900px) {
+  header { height: auto; min-height: 88px; padding: 8px 4%; gap: 8px 18px; flex-wrap: wrap; }
+  .logo { width: 125px; height: 72px; flex: 0 0 auto; }
+  .logo img { max-height: 118px; width: auto; margin-left: -10px; margin-top: 12px; }
+  nav { flex: 1 1 520px; }
+  nav ul { justify-content: flex-end; flex-wrap: wrap; gap: 6px 14px; }
+  nav a { display: block; padding: 7px 2px; }
+  .grid { grid-template-columns: repeat(auto-fit,minmax(min(260px,100%),1fr)); }
+}
+@media (max-width: 680px) {
+  header { position: relative; flex-direction: column; padding: 8px 14px 12px; }
+  .logo { width: 112px; height: 64px; }
+  .logo img { max-height: 104px; margin: 10px 0 0; }
+  nav { width: 100%; flex: none; overflow-x: auto; scrollbar-width: thin; -webkit-overflow-scrolling: touch; }
+  nav ul { width: max-content; min-width: 100%; justify-content: flex-start; flex-wrap: nowrap; gap: 6px; padding: 2px 2px 7px; }
+  nav li { flex: 0 0 auto; }
+  nav a { padding: 8px 10px; border-radius: 8px; white-space: nowrap; }
+  nav a:hover, nav a.active { background: rgba(6,182,212,.1); }
+  .hero { padding: 42px 18px; }
+  .hero h1 { font-size: clamp(1.65rem,8vw,2.05rem); line-height: 1.2; }
+  .hero p { font-size: 1rem; }
+  .container { width: 100%; margin: 24px auto; padding: 0 15px; }
+  .grid { grid-template-columns: 1fr; gap: 18px; }
+  .card, .artigo, .quiz-box, .info-section, .modal-content { padding: 20px; }
+  .info-section { margin: 20px 15px; }
+  .infografico-wrapper { height: auto; min-height: 220px; }
+  .infografico-wrapper img { width: 100%; height: auto; max-height: 440px; object-fit: contain; }
+  .btn, .option-btn { min-height: 44px; }
+  footer { padding: 20px 15px; text-align: center; }
+}
+@media (max-width: 380px) {
+  .container { padding: 0 12px; }
+  .hero { padding: 34px 14px; }
+  .card, .artigo, .quiz-box, .info-section, .modal-content { padding: 16px; }
+  .card h2, .card h3 { overflow-wrap: anywhere; }
+}
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+  *, *::before, *::after { animation-duration: .01ms !important; animation-iteration-count: 1 !important; transition-duration: .01ms !important; }
+}
