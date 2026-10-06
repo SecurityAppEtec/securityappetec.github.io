@@ -255,3 +255,29 @@ function reiniciarQuiz() {
     score = 0;
     carregarQuiz();
 }
+// Menu responsivo de todas as paginas
+const menuToggle = document.querySelector('.menu-toggle');
+const menuPrincipal = document.querySelector('header nav');
+
+if (menuToggle && menuPrincipal) {
+    const fecharMenu = () => {
+        menuToggle.classList.remove('aberto');
+        menuPrincipal.classList.remove('aberto');
+        menuToggle.setAttribute('aria-expanded', 'false');
+        menuToggle.setAttribute('aria-label', 'Abrir menu');
+    };
+
+    menuToggle.addEventListener('click', () => {
+        const aberto = !menuPrincipal.classList.contains('aberto');
+        menuToggle.classList.toggle('aberto', aberto);
+        menuPrincipal.classList.toggle('aberto', aberto);
+        menuToggle.setAttribute('aria-expanded', String(aberto));
+        menuToggle.setAttribute('aria-label', aberto ? 'Fechar menu' : 'Abrir menu');
+    });
+
+    menuPrincipal.querySelectorAll('a').forEach(link => link.addEventListener('click', fecharMenu));
+
+    window.addEventListener('resize', () => {
+        if (window.innerWidth > 720) fecharMenu();
+    });
+}
